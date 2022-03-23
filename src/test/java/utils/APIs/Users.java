@@ -42,8 +42,37 @@ public class Users {
     public static void createUser(RegisteredUser user) throws IOException, TimeoutException {
 
         String companyId = getCompanyId();
+        String requestURL = getPortalURL() + "api/jsonws/user/add-user";
 
-        //TODO Step 1 Preparation
+        String curl = requestURL + " " +
+                "-u " + ADMIN_USER_EMAIL + ":" + ADMIN_USER_PASSWORD + " " +
+                "-d companyId=" + companyId + " " +
+                "-d autoPassword=false " +
+                "-d password1=" + user.getPassword() + " " +
+                "-d password2=" + user.getPassword() + " " +
+                "-d autoScreenName=false " +
+                "-d screenName=" + user.getScreenName() + " " +
+                "-d emailAddress=" + user.getEmail() + " " +
+                "-d facebookId=0 " +
+                "-d openId= " +
+                "-d locale=" + user.geLocale().getCountry() + " " +
+                "-d firstName=" + user.getFirstName() + " " +
+                "-d middleName=" + user.getMiddleName() + " " +
+                "-d lastName=" + user.getLastName() + " " +
+                "-d prefixId=0 " +
+                "-d suffixId=0 " +
+                "-d male=true " +
+                "-d birthdayMonth=" + user.getDateOfBirth().getMonthValue() + " " +
+                "-d birthdayDay=" + user.getDateOfBirth().getDayOfMonth() + " " +
+                "-d birthdayYear=" + user.getDateOfBirth().getYear() + " " +
+                "-d jobTitle= " +
+                "-d groupIds= " +
+                "-d organizationIds= " +
+                "-d roleIds= " +
+                "-d userGroupIds= " +
+                "-d sendEmail=false";
+
+        JSONCurlUtil.post(curl);
 
         String userId = getUserIdByEmailAddress(user.getEmail());
         agreeToTermsAndAnswerReminderQuery(userId);
