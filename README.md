@@ -23,7 +23,9 @@ In order to do it, just follow:
 1. Install docker https://docs.docker.com/get-docker/
 2. Increase your Memory in docker to at least 6.00 GB (settings-> Resources -> Advanced -> Memory)
 3. In a console just run (please note you can change the port and select another one instead of 9080)
-> docker run --name my-local-liferay-test --rm -p 9080:8080 dgutimesa/my-test:7.4.3.10-ga10
+```
+docker run --name my-local-liferay-test --rm -p 9080:8080 dgutimesa/my-test:7.4.3.10-ga10
+```
 
 #### Import fragment in an already running Liferay instance (7.1 or higher)
 
@@ -34,7 +36,7 @@ In order to do it, just follow:
 
 :warning: Tested for the following clean docker images; liferay/portal:7.1.3-ga4, liferay/portal:7.2.1-ga2, liferay/portal:7.3.7-ga8 and liferay/portal:7.4.3.10-ga10. Other Liferay versions or not clean instances may not work.
 
-###Liferay Test Automation
+### Liferay Test Automation
 Also clone this repo and open it with your favorite IDE (we are going to use IntellJ IDEA to show it)
 
 We recommend you to install some plugin for Java, Gradle and Cucumber.
@@ -44,7 +46,9 @@ We also recommend having installed Chrome browser. Otherwise, you will need to p
 ## How to run automation?
 ### Run against downloaded docker with Chrome
 After install the docker image and clone this repo, in order to run the tests in a console you must just do (please mind if you need to change the port or not):
-> ./gradlew :cleanTest :test -Durl=http://localhost:9080/
+```
+./gradlew :cleanTest :test -Durl=http://localhost:9080/
+```
 
 ### Run with default browser (Chrome) against localhost:8080
 We just need to run "cucumber" task with Gradle in the root project folder:
