@@ -51,7 +51,13 @@ public class Users {
 
     public static void deleteUser(RegisteredUser user) throws IOException, TimeoutException {
 
-        //TODO Step 4 Clean up the environment
+        String userId = getUserIdByEmailAddress(user.getEmail());
+
+        String baseUrl = getPortalURL();
+
+        String curl = String.format("%so/headless-admin-user/v1.0/user-accounts/%s -u %s:%s", baseUrl,  userId, ADMIN_USER_EMAIL, ADMIN_USER_PASSWORD);
+
+        JSONCurlUtil.delete(curl);
 
     }
 
