@@ -10,7 +10,7 @@ We are going to implement 4 parts, that correspond with the 4 parts a test shoul
 
 ## Before the workshop
 ### Liferay instance to run tests against
-Firs step is to prepare an environment to run automation against it. It's going to be our Liferay customization to be tested.
+First step is to prepare an environment to run automation against it. It's going to be our Liferay customization to be tested.
 
 Here we have two possibilities. Download and run our docker image with everything already configured or just import our [Amazing Fragment](src/test/resources/fragments/MyAmazingCollection-V1.0.zip) into an already running liferay instance (Liferay 7.1 or higher). We recommend using our docker container.
 
