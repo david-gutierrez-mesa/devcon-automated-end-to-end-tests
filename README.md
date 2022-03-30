@@ -10,7 +10,7 @@ We are going to implement 4 parts, that correspond with the 4 parts a test shoul
 
 ## Before the workshop
 ### Liferay instance to run tests against
-Firs step is to prepare an environment to run automation against it. It's going to be our Liferay customization to be tested.
+First step is to prepare an environment to run automation against it. It's going to be our Liferay customization to be tested.
 
 Here we have two possibilities. Download and run our docker image with everything already configured or just import our [Amazing Fragment](src/test/resources/fragments/MyAmazingCollection-V1.0.zip) into an already running liferay instance (Liferay 7.1 or higher). We recommend using our docker container.
 
@@ -22,9 +22,9 @@ You can to download and install an already configured docker container with a cu
 In order to do it, just follow:
 1. Install docker https://docs.docker.com/get-docker/
 2. Increase your Memory in docker to at least 6.00 GB (settings-> Resources -> Advanced -> Memory)
-3. In a console just run (please note you can change the port and select another one instead of 9080)
+3. In a console just run (please note you can change the port and select another one instead of 8080)
 ```
-docker run --name my-local-liferay-test --rm -p 9080:8080 dgutimesa/my-test:7.4.3.10-ga10
+docker run --name my-local-liferay-test --rm -p 8080:8080 dgutimesa/my-test:7.4.3.10-ga10
 ```
 
 #### Import fragment in an already running Liferay instance (7.1 or higher)
@@ -45,19 +45,18 @@ We also recommend having installed Chrome browser. Otherwise, you will need to p
 
 ## How to run automation?
 ### Run against downloaded docker with Chrome
-After install the docker image and clone this repo, in order to run the tests in a console you must just do (please mind if you need to change the port or not):
-```
-./gradlew :cleanTest :test -Durl=http://localhost:9080/
-```
-
-### Run with default browser (Chrome) against localhost:8080
-We just need to run "cucumber" task with Gradle in the root project folder:
-
+After install the docker image and clone this repo, in order to run the tests in a console you must just do (please mind if you need to use a the port or not):
 ```
 ./gradlew :cleanTest :test
 ```
-
 Or execute test runner java file RunTests.java from your ID.
+
+### Run with default browser (Chrome) against specific port
+We just need to run "cucumber" task with Gradle and option -Durl in the root project folder. Example:
+
+```
+./gradlew :cleanTest :test -Durl=http://localhost:9080/
+```
 
 ### Run against not local instances
 By default, tests are executed against localhost with http protocol and using port 8080.
