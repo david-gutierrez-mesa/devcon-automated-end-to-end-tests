@@ -11,7 +11,7 @@ public class HomePageSteps implements En {
     private final PrivateLayout privateLayoutHomePage;
 
     public HomePageSteps(TestContext testContext) {
-        this.privateLayoutHomePage = testContext.getLayoutObjectManager().getPrivateLayoutHomePage();
+        this.privateLayoutHomePage = null;
 
         When("^I navigate to \"([^\"]*)\"$", (String page) -> {
             //TODO Step 2 Execution
