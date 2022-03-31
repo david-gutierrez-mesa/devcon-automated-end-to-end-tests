@@ -11,10 +11,11 @@ public class HomePageSteps implements En {
     private final PrivateLayout privateLayoutHomePage;
 
     public HomePageSteps(TestContext testContext) {
-        this.privateLayoutHomePage = null;
+        this.privateLayoutHomePage = testContext.getLayoutObjectManager().getPrivateLayoutHomePage();
 
         When("^I navigate to \"([^\"]*)\"$", (String page) -> {
-            //TODO Step 2 Execution
+            this.privateLayoutHomePage.navigateToPage(page);
+            assertTrue(this.privateLayoutHomePage.getPage().isPageCorrect());
         });
 
     }
